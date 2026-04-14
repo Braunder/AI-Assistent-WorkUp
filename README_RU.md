@@ -174,7 +174,3 @@ python main.py
 - `assistant/knowledge/ingest.py` — наполнение knowledge collection
 - `assistant/memory/store.py` — Chroma-слои памяти и knowledge
 - `assistant/tools/export.py` — логика экспорта/импорта
-
-## Лицензия
-
-Добавь секцию лицензии по выбранной модели (MIT/Apache-2.0/и т.д.), если репозиторий планируется публиковать.
