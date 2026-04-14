@@ -101,27 +101,6 @@ pip install -r requirements.txt
 
 Create or update `.env` in the project root.
 
-Example:
-
-```env
-TAVILY_API_KEY=your_tavily_api_key
-
-LM_STUDIO_BASE_URL=http://localhost:1234/v1
-LM_STUDIO_MODEL=qwen3.5-9b
-LM_STUDIO_EMBEDDING_MODEL=text-embedding-qwen3-embedding-0.6b
-
-PRACTICE_FILE_PATH=practice.py
-NOTES_FILE_PATH=study_notes.txt
-MEMORY_DB_PATH=memory_db
-KNOWLEDGE_CORPUS_PATH=KNOWLEDGE_RAG_MLOPS_LMOPS.md
-
-MAX_CONTEXT_MEMORIES=5
-MAX_KNOWLEDGE_CONTEXT_CHUNKS=6
-WHISPER_MODEL=medium
-AUTO_SAVE_EVERY_TURNS=2
-AUTO_SAVE_MIN_INTERVAL_SEC=120
-```
-
 ### 3) Start LM Studio
 
 1. Run LM Studio locally.
