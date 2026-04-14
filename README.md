@@ -199,7 +199,3 @@ In the Verify tab:
 - `assistant/knowledge/ingest.py` - knowledge collection ingestion
 - `assistant/memory/store.py` - session and knowledge vector memory layers
 - `assistant/tools/export.py` - export/import logic
-
-## License
-
-Add a license section (MIT/Apache-2.0/etc.) before publishing the repository.
