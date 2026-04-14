@@ -1,0 +1,32 @@
+# LLM / LM Studio
+openai>=1.30.0
+
+# Web search
+tavily-python>=0.3.0
+
+# Speech-to-Text
+faster-whisper>=1.0.0
+transformers>=4.46.0
+
+# Config
+pydantic-settings>=2.0.0
+
+# RAG memory
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+
+# Audio utils
+sounddevice>=0.4.6
+webrtcvad-wheels>=2.0.14
+numpy>=1.24.0,<2.0.0
+pynput>=1.7.7
+
+# Screen capture tool
+mss>=9.0.1
+
+# Streamlit web UI
+streamlit>=1.40.0
+streamlit-ace>=0.1.1
+
+# PDF export (optional — for export_to_pdf)
+fpdf2>=2.7.0
