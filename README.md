@@ -1,93 +1,91 @@
 # ML Interview Assistant
 
-AI-ассистент для подготовки к собеседованиям по LM/MLOps/DevOps с двумя режимами работы:
+An AI assistant for LM/MLOps/DevOps interview preparation featuring two operating modes:
 
-- Streamlit Web UI для интерактивного чата, проверки фактов и работы с кодом.
-- Voice CLI (push-to-talk) для голосового сценария без браузера.
+- A Streamlit web interface for interactive chat, fact-checking, and coding tasks.
+- A voice-enabled CLI interface (Push-to-Talk) for a browser-free voice interaction workflow.
 
-Проект объединяет:
+The project implements:
 
-- локальную LLM через LM Studio (OpenAI-compatible API),
-- RAG по базе знаний и прошлым сессиям (ChromaDB),
-- инструменты записи прогресса, заметок, задач и web-поиска,
-- fact-check последнего ответа через Tavily + LLM critique.
+- Local LLM support via LM Studio (OpenAI-compatible API),
+- RAG based on a knowledge base and past sessions (ChromaDB),
+- Tools for tracking progress, taking notes, managing tasks, and performing web searches,
+- Fact-checking of the latest response using Tavily + LLM critique.
 
-## Возможности
+## Features
 
-- 3 режима коучинга: Study, Diagnostic, Interview.
-- Голосовой ввод в CLI (удержание клавиши `X`) и в Web UI (кнопка микрофона).
-- RAG-контекст из:
-  - долгосрочной памяти прошлых сессий,
-  - локального корпуса знаний `KNOWLEDGE_RAG_MLOPS_LMOPS.md`.
-- Проверка фактов (Verify) с выводом вердикта: ТОЧНЫЙ / НЕТОЧНЫЙ / ТРЕБУЕТ ПРОВЕРКИ.
-- Встроенная вкладка Code в UI:
-  - редактирование `practice.py`,
-  - быстрая проверка синтаксиса,
-  - запуск кода в sandbox-скрипте.
+- 3 coaching modes: Exploration, Diagnosis, Interview.
+- Voice input in CLI (hold 'X' key) and web interface (microphone button).
+- RAG context derived from:
+- extensive memory of past sessions,
+- a local knowledge corpus (`KNOWLEDGE_RAG_MLOPS_LMOPS.md`).
+- Fact-checking (Verify) with verdict output: ACCURATE / INACCURATE / REQUIRES VERIFICATION.
+- Integrated UI code features:
+- editing `practice.py`,
+- quick syntax checking,
+- code execution in a sandbox script.
 # ML Interview Assistant
 
 An AI assistant for LM/MLOps/DevOps interview preparation with two interfaces:
 
-- Streamlit Web UI for interactive chat, fact-checking, and code practice.
-- Voice CLI (push-to-talk) for a browser-free workflow.
-
-This project combines:
+- A Streamlit web interface for interactive chat, fact-checking, and coding practice.
+- A voice-enabled CLI interface (Push-to-Talk) for a browser-free workflow. This project combines:
 
 - a local LLM via LM Studio (OpenAI-compatible API),
-- RAG over a knowledge base and past sessions (ChromaDB),
-- tools for progress tracking, notes, practice tasks, and web search,
-- final-answer fact-checking through Tavily + LLM critique.
+- RAG based on a knowledge base and past sessions (ChromaDB),
+- tools for tracking progress, taking notes, managing practical tasks, and web searching,
+- final fact-checking via Tavily + LLM critique.
 
 ## Features
 
-- 3 coaching modes: Study, Diagnostic, Interview.
-- Voice input in CLI (hold `X`) and in Web UI (microphone button).
-- RAG context from:
-  - long-term memory of previous sessions,
-  - local knowledge corpus `KNOWLEDGE_RAG_MLOPS_LMOPS.md`.
-- Verify tab with verdicts: ACCURATE / INACCURATE / NEEDS VERIFICATION.
-- Built-in Code tab in UI:
-  - edit `practice.py`,
-  - run quick syntax checks,
-  - execute code in a temporary sandbox script.
-- Export current session to Markdown/PDF and import chat from `.md`/`.json`.
-- Automatic chat-session persistence into vector memory.
+- 3 coaching modes: Exploration, Diagnosis, Interview.
+- Voice input in CLI (hold the `X` key) and web interface (microphone button).
+- RAG context usage based on:
+- long-term memory of previous sessions,
+- local knowledge base `KNOWLEDGE_RAG_MLOPS_LMOPS.md`.
+- Verification tab with verdicts: ACCURATE, INACCURATE, NEEDS VERIFICATION.
+- Built-in "Code" tab in the interface:
+- editing the `practice.py` file,
+- quick syntax check,
+- code execution in a temporary sandbox script.
+- Export current session to Markdown/PDF and import chat from `.md`/`.json` files.
+- Automatic chat session saving to vector memory.
 
 ## Tech Stack
 
 - Python 3.10+
 - Streamlit
-- OpenAI SDK (connected to LM Studio)
+- OpenAI SDK (connecting to LM Studio)
 - ChromaDB + sentence-transformers
-- faster-whisper (STT)
+- faster-whisper (STT — speech-to-text)
 - Tavily API (web search)
 
 ## Project Structure
 
 ```text
 .
-├─ app.py                              # Streamlit UI entry point
-├─ main.py                             # Voice CLI entry point
+├─ app.py                              # Entry point for the Streamlit interface
+├─ main.py                             # Entry point for the voice CLI
 ├─ requirements.txt
 ├─ assistant/
-│  ├─ config.py                        # .env-based settings
-│  ├─ core/assistant.py                # Dialog orchestration, tools, modes
-│  ├─ llm/client.py                    # LM Studio client
-│  ├─ memory/                          # Schemas and ChromaDB store
-│  ├─ knowledge/ingest.py              # Knowledge corpus ingestion into Chroma
+│  ├─ config.py                        # Settings based on .env
+│  ├─ core/assistant.py                # Dialogue, tool, and mode management
+│  ├─ llm/client.py                    # Client for LM Studio
+│  ├─ memory/                          # Data schemas and ChromaDB storage
+│  ├─ knowledge/ingest.py              # Loading the knowledge base into Chroma
 │  ├─ tools/                           # Web search, notes, practice files, export
 │  ├─ ui/                              # Streamlit UI components
-│  └─ voice/stt.py                     # Speech-to-text
+│  └─ voice/stt.py                     # Speech-to-Text (STT)
 ├─ notes/                              # Markdown notes
 ├─ study_notes.txt                     # Session notes log
-├─ practice.py                         # User practice/tasks file
+├─ practice.py                         # File containing practice exercises
 ├─ _solutions/                         # Hidden reference solutions
 └─ memory_db/                          # Local vector database (Chroma)
 ```
 
 ## Quick Start
 
-### 1) Clone and create environment
+### 1) Cloning and Environment Setup
 
 ```powershell
 git clone <repo_url>
@@ -97,35 +95,31 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 2) Configure `.env`
+### 2) Configuring `.env`
 
-Create or update `.env` in the project root.
+Create or update the `.env` file in the project root directory.
 
-### 3) Start LM Studio
+### 3) Launching LM Studio
 
-1. Run LM Studio locally.
+1. Launch LM Studio locally.
 2. Load a chat model and an embedding model.
-3. Enable the local OpenAI-compatible server (usually `http://localhost:1234/v1`).
-
-### 4) (Optional) Ingest the knowledge base
+3. Start the local server compatible with the OpenAI API (usually `http://localhost:1234/v1`). ### 4) (Optional) Loading the knowledge base
 
 ```powershell
 python -m assistant.knowledge.ingest
 ```
 
-If you skip ingestion, the assistant still works, but without full knowledge-chunk retrieval in RAG.
+If you skip this step, the assistant will still function, but without full-fledged knowledge fragment search capabilities (RAG).
 
-## Run the App
+## Launching the application
 
-### Web UI
+### Web interface
 
 ```powershell
 streamlit run app.py
 ```
 
-After startup, open the URL shown in terminal (usually `http://localhost:8501`).
-
-### Voice CLI
+Once launched, open the URL displayed in the terminal (usually `http://localhost:8501`). ### Voice interface (CLI)
 
 ```powershell
 python main.py
@@ -199,7 +193,3 @@ In the Verify tab:
 - `assistant/knowledge/ingest.py` - knowledge collection ingestion
 - `assistant/memory/store.py` - session and knowledge vector memory layers
 - `assistant/tools/export.py` - export/import logic
-
-## License
-
-Add a license section (MIT/Apache-2.0/etc.) before publishing the repository.
